@@ -1,6 +1,7 @@
 Create input file(data to filter) in working directory:  
+'''
 $ touch input.bin
-
+'''
 Set permission to run script:  
 $ chmod +x medfilt.py
 
