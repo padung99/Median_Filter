@@ -1,3 +1,10 @@
+First of all, you need to install `python3`  
+Used libraries  
+```
+numpy: $ pip install numpy
+scipy: $ sudo apt-get install python3-scipy
+typer: $ pip install typer 
+```
 Create input file(data to filter) in working directory:  
 ```
 $ touch input.bin
