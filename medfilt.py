@@ -1,12 +1,14 @@
+from dataclasses import replace
 import numpy as np
 import scipy
 from scipy.signal import medfilt
 from collections import Iterable
 
-window_filter = 5 
+window_filter = 5 #Filter's window
 
-def flatten(lis): #convert a nested list into a one-dimensional lis
-     for item in lis:
+#convert a nested list into a one-dimensional list
+def flatten(list): 
+     for item in list:
          if isinstance(item, Iterable) and not isinstance(item, str):
              for x in flatten(item):
                  yield x
@@ -15,14 +17,25 @@ def flatten(lis): #convert a nested list into a one-dimensional lis
 
 content = []
 with open('input.bin') as f:
-    h = [int(x) for x in next(f).split() if x.isdigit()] # read first line
+    # read first line and add elements if these elements is number
+    h = [int(x) for x in next(f).split() if x.isdigit()] 
     content.append(h)
-    for line in f: # read rest of lines
+
+    # read rest of lines
+    for line in f: 
         content.append([int(x) for x in line.split() if x.isdigit()])
 
+output = open("output.bin", "w")
+#convert to 1D array
+Dimension_1D = list(flatten(content)) 
+#Median filter
+outFilter = scipy.signal.medfilt(np.array(Dimension_1D), window_filter) 
 
-Dimension_1D = list(flatten(content))
-outFilter = scipy.signal.medfilt(np.array(Dimension_1D), window_filter)
+#Delete characters, which are not number
+data_out= str(outFilter).replace("[", "") 
+data_out = data_out.replace("]", "")
+
+output.write(data_out)
 
 print(type(Dimension_1D))
 print(Dimension_1D)
