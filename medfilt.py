@@ -5,7 +5,8 @@ from scipy.signal import medfilt
 from collections import Iterable
 
 window_filter = 5 #Filter's window
-
+input_file = "input.bin"
+output_file = "output.bin"
 #convert a nested list into a one-dimensional list
 def flatten(list): 
      for item in list:
@@ -16,7 +17,7 @@ def flatten(list):
              yield item
 
 content = []
-with open('input.bin') as f:
+with open(input_file) as f:
     # read first line and add elements if these elements is number
     h = [int(x) for x in next(f).split() if x.isdigit()] 
     content.append(h)
@@ -25,7 +26,7 @@ with open('input.bin') as f:
     for line in f: 
         content.append([int(x) for x in line.split() if x.isdigit()])
 
-output = open("output.bin", "w")
+output = open(output_file, "w")
 #convert to 1D array
 Dimension_1D = list(flatten(content)) 
 #Median filter
