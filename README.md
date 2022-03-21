@@ -32,4 +32,28 @@ See more details:
 ``` 
 $ ./medfilt.py --help  
 ```    
-
+Examples:
+Input data from "**input.bin**":  
+``` 
+4 5 6 9 16 04 99 25 36 99 14 25 12 36 97 14 74 56 23 36 114 14
+```  
+1. **Input**(stdin) **without flag** --f:  
+``` 
+$ ./medfilt.py 5 input.bin  
+```   
+**Output**(stdout) on **console**:  
+``` 
+Output data:   4  5  6  6  9 16 25 36 36 25 25 25 25 25 36 56 56 36 56 36 23 14
+```  
+2. **Input**(stdin) **with flag** --f:  
+```
+$ ./medfilt.py 5 input.bin --f  
+```   
+**Output**(stdout) on **console**:  
+``` 
+Output data:   4  5  6  6  9 16 25 36 36 25 25 25 25 25 36 56 56 36 56 36 23 14
+```  
+**Output** to "**output.bin**":  
+```
+ 4  5  6  6  9 16 25 36 36 25 25 25 25 25 36 56 56 36 56 36 23 14
+```
