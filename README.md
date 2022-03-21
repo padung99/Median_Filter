@@ -1,4 +1,4 @@
-First of all, you need to install `python3`    
+First of all, you need to install `python3`      
 Used libraries  
 ```
 numpy: $ pip install numpy
