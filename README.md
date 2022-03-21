@@ -22,7 +22,7 @@ $ ./medfilt.py <Filter's window> <Input file name> <flag>
 ```  
 Note:  
 ``` 
-1. Filter's window: Integer  
+1. Window's filter: Integer  
 2. Input file name (Name of input file): string  
 3. flag (This is optional field):  
 --f/--no-f: Create output.bin file in **current working directory** to save output data from filter
