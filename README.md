@@ -18,7 +18,7 @@ $ chmod +x medfilt.py
 ```    
 Run script to receive output data from filter:  
 ```  
-$ ./medfilt <Filter's window> <Input file name> <flag>
+$ ./medfilt.py <Filter's window> <Input file name> <flag>
 ```  
 Note:  
 ``` 
