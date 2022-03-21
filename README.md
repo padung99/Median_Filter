@@ -19,11 +19,15 @@ $ chmod +x medfilt.py
 Run script to receive output data from filter:  
 ```  
 $ ./medfilt <Filter's window> <Input file name> <flag>
-Filter's window: Integer  
-Input file name (Name of input file): string  
-flag (This is optional field):  
---f/--no-f: Create output.bin file in current working directory to save output data from filter
-```    
+```  
+Note:  
+``` 
+1. Filter's window: Integer  
+2. Input file name (Name of input file): string  
+3. flag (This is optional field):  
+4. --f/--no-f: Create output.bin file in current working directory to save output data from filter
+```  
+
 See more details:  
 ``` 
 $ ./medfilt.py --help  
