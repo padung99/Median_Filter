@@ -22,6 +22,7 @@ Input file name (Name of input file): string
 flag (This is optional field):  
 --f/--no-f: Create output.bin file in current working directory to save output data from filter
 ```  
-See more details:  `
+See more details:  
+``` 
 $ ./medfilt.py --help  
- 
+``` 
