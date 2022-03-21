@@ -4,7 +4,13 @@ Used libraries
 numpy: $ pip install numpy
 scipy: $ sudo apt-get install python3-scipy
 typer: $ pip install typer 
-```    
+```   
+For more information, see  
+```
+[typer](https://github.com/tiangolo/typer) 
+[scipy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.medfilt.html) 
+```
+scipy
 Create input file(data to filter) in working directory:  
 ```
 $ touch input.bin
@@ -24,4 +30,5 @@ flag (This is optional field):
 See more details:  
 ``` 
 $ ./medfilt.py --help  
-``` 
+```    
+
