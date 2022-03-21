@@ -8,7 +8,7 @@ typer: $ pip install typer
 ```   
 For more information, see "[typer](https://github.com/tiangolo/typer)" and "[scipy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.medfilt.html)" 
 
-Create input file(data to filter) in **current working directory**:  
+Create input file(data to filter) in **_current working directory_**:  
 ```
 $ touch input.bin
 ```    
