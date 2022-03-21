@@ -26,7 +26,7 @@ Note:
 1. Filter's window: Integer  
 2. Input file name (Name of input file): string  
 3. flag (This is optional field):  
-4. --f/--no-f: Create output.bin file in current working directory to save output data from filter
+--f/--no-f: Create output.bin file in current working directory to save output data from filter
 ```  
 
 See more details:  
