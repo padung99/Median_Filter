@@ -1,12 +1,29 @@
-from dataclasses import replace
+#!/usr/bin/env python3
+
+#This script is written by Phan Anh Dung (Фан Ань Зунг)
+#More detail in README.md
+#github: https://github.com/padung99/Median_Filter
+
 import numpy as np
 import scipy
 from scipy.signal import medfilt
-from collections import Iterable
+import collections
+import typer 
 
-window_filter = 5 #Filter's window
-input_file = "input.bin"
+try:
+    collectionsAbc = collections.abc
+except AttributeError:
+    collectionsAbc = collections
+
+try:
+    from collections.abc import Iterable 
+except ImportError:
+    from collections import Iterable 
+
+app = typer.Typer()
+
 output_file = "output.bin"
+
 #convert a nested list into a one-dimensional list
 def flatten(list): 
      for item in list:
@@ -16,29 +33,44 @@ def flatten(list):
          else:        
              yield item
 
-content = []
-with open(input_file) as f:
-    # read first line and add elements if these elements is number
-    h = [int(x) for x in next(f).split() if x.isdigit()] 
-    content.append(h)
+@app.command()
+def filter(w: int = typer.Argument(..., help="[int] Window's median filter"),
+           ifile: str = typer.Argument(..., help="[File's name] Input data to median filter (From .bin file)"),
+           f: bool = typer.Option(False, help='[File] Create output.bin in this working directory to save output data from median filter')):
+    window_filter = w
+    
+    input_file = ifile
 
-    # read rest of lines
-    for line in f: 
-        content.append([int(x) for x in line.split() if x.isdigit()])
+    content = []
+    with open(input_file) as file:
+        # read first line and add elements if these elements is number
+        h = [int(x) for x in next(file).split() if x.isdigit()] 
+        content.append(h)
 
-output = open(output_file, "w")
-#convert to 1D array
-Dimension_1D = list(flatten(content)) 
-#Median filter
-outFilter = scipy.signal.medfilt(np.array(Dimension_1D), window_filter) 
+        # read rest of lines
+        for line in file: 
+            content.append([int(x) for x in line.split() if x.isdigit()])
 
-#Delete characters, which are not number
-data_out= str(outFilter).replace("[", "") 
-data_out = data_out.replace("]", "")
+    #convert to 1D array
+    Dimension_1D = list(flatten(content))
 
-output.write(data_out)
+    #Median filter
+    outFilter = scipy.signal.medfilt(np.array(Dimension_1D), window_filter) 
 
-print(type(Dimension_1D))
-print(Dimension_1D)
+    #Delete characters, which are not number
+    data_out= str(outFilter).replace("[", "") 
 
-print(outFilter)
+    #output array to file ###########
+    data_out = data_out.replace("]", "")
+    
+    if f:
+        #write data to ouput file
+        output = open(output_file, "w")
+        output.write(data_out)
+
+    #stdout
+    typer.echo(f"Output data:  {data_out}")
+    
+
+if __name__ == "__main__":
+    app()
