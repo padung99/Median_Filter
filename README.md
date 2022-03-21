@@ -32,7 +32,7 @@ See more details:
 ``` 
 $ ./medfilt.py --help  
 ```    
-Examples:
+### **Examples:**  
 Input data from "**input.bin**":  
 ``` 
 4 5 6 9 16 04 99 25 36 99 14 25 12 36 97 14 74 56 23 36 114 14
