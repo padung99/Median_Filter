@@ -43,7 +43,7 @@ def filter(w: int = typer.Argument(..., help="[int] Window's median filter"),
 
     content = []
     with open(input_file) as file:
-        # read first line and add elements if these elements is number
+        # read first line and add elements if these elements are number
         h = [int(x) for x in next(file).split() if x.isdigit()] 
         content.append(h)
 
