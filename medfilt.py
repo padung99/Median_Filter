@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #This script is written by Phan Anh Dung (Фан Ань Зунг)
-#More detailы in README.md
+#More details in README.md
 #github: https://github.com/padung99/Median_Filter
 
 import numpy as np
